@@ -12,7 +12,7 @@ env.read_env()
 class WeatherManager:
     API_KEY = env("API_KEY")
 
-    def __init__(self, city):
+    def __init__(self, city=None):
         self.city = city
 
     @staticmethod
@@ -70,7 +70,7 @@ class WeatherManager:
         #
         # return data
 
-        # JSON file
+        # From JSON file
         with open("../api/weather.json") as f:
             return json.load(f)
 

@@ -3,7 +3,7 @@ data = {
         'from_user': {
             'id': 600717944,
             'is_bot': False,
-            'first_name': 'Ozod',
+            'first_name': 'Bekzod',
             'username': 'bxudayberdiyev',
             'last_name': None,
             'language_code': 'en',
