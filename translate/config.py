@@ -60,4 +60,4 @@ LANGDICT = {
     'cy': 'welsh',
     'yi': 'yiddish',
   }
-LANGUES = LANGDICT.keys()
+LANGUAGES = LANGDICT.keys()

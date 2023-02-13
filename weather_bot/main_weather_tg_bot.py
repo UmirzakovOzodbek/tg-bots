@@ -58,7 +58,7 @@ async def get_weather(message: types.Message):
         await message.reply(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
                             f"Weather in the city: {city}\nTemperature: {cur_weather}C° {wd}\n"
                             f"Moisture: {humidity}%\nPressure: {pressure} mm.Hg\nThe wind is blowing: {wind} m/s\n"
-                            f"Sunrise: {sunrise_timestamp}\nSunrise: {sunset_timestamp}\nDuring the day: {length_of_the_day}\n"
+                            f"Sunrise: {sunrise_timestamp}\nSunset: {sunset_timestamp}\nDuring the day: {length_of_the_day}\n"
                             f"***Have a good day!***"
                             )
     except:

@@ -47,7 +47,7 @@ async def process_start_command(message: aiogram.types.Message):
 
 @dp.callback_query_handler(lambda c: c.data)
 async def process_callback_kb1btn1(callback_query: aiogram.types.CallbackQuery):
-    if callback_query.data in cfg.LANGUES:
+    if callback_query.data in cfg.LANGUAGES:
 
         lang = callback_query.data
 
@@ -77,7 +77,7 @@ async def echo_message(msg: types.Message):
 def my_commands():
     return [
         BotCommand("/start", "Start bot"),
-        BotCommand("/choose", "Today weather")
+        BotCommand("/choose", "Languages box")
     ]
 
 

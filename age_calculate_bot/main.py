@@ -10,26 +10,41 @@ bot = telebot.TeleBot(API_TOKEN, parse_mode=None)
 @bot.message_handler(commands=["start"])
 def send_welcome(message):
     user = message.from_user
-    answer = f"Assalomu alaykum {user.first_name}, Xush kelibsiz!"
-    answer += "\nTug'ulgan yilingizni kiriting:"
+    answer = f"Assalomu alaykum {user.first_name}, Yoshingizni aniqlovchi botga xush kelibsiz!"
     bot.reply_to(message, answer)
 
 
-@bot.message_handler(func=lambda message: True)
-def calculate_age(message):
-    today = date.today()
-    age = today.year - message - ((today.month, today.day) < (message.month, message.day))
-    birth_date = date(message, 12, 12)
-    bot.reply_to(birth_date, f"Yosh: {age}")
+@bot.message_handler(commands=['age'])
+def get_age(message):
+    msg = bot.reply_to(message, "Tug'ilgan yilingizni kiriting.")
+    bot.register_next_step_handler(msg, get_age_func)
+
+
+def get_age_func(message):
+    current_year = int(datetime.now().strftime('%Y'))
+    try:
+        user_year = int(message.text)
+    except Exception as e:
+        answer = "Tug'ilgan yilingizni kiriting."
+        bot.reply_to(message, answer)
+    else:
+        if user_year < current_year:
+            text = f"Siz {current_year - user_year} yoshda siz."
+            bot.reply_to(message, text)
+        else:
+            answer = "Iltimos tug'ilgan yilingizni to'g'ri kiriting!!"
+            bot.reply_to(message, answer)
 
 
 def my_commands():
     return [
-        BotCommand("/start", "Start bot")
+        BotCommand("/start", "Start bot"),
+        BotCommand("/age", "Age bot")
     ]
 
 
 if __name__ == "__main__":
+    print("Started...")
     bot.set_my_commands(commands=my_commands())
     bot.polling()
 
