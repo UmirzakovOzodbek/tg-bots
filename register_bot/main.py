@@ -6,16 +6,14 @@ from telebot import custom_filters
 from telebot.storage import StateMemoryStorage
 from telebot.types import BotCommand, ReplyKeyboardRemove
 
-from bot.todo.keybords import languages_inline_btn, share_phone_btn, get_language_btn, confirm_btn
-from bot.todo.messages import messages
-from bot.todo.states import StudentRegistrationForm
-from bot.todo.task import Chat, Task
-from bot.utils import write_row_to_csv, get_fullname, get_language_code_by_chat_id
+from keybords import languages_inline_btn, share_phone_btn, get_language_btn, confirm_btn
+from messages import messages
+from states import StudentRegistrationForm
+from task import Chat, Task
+from utils import write_row_to_csv, get_fullname, get_language_code_by_chat_id
 
 env = Env()
-env.read_env("../.env")
-
-BOT_TOKEN = env("BOT_TOKEN")
+BOT_TOKEN = "6175077800:AAGIDJOiiS2mCigyKlm_Zmb9_OByVMUVyi0"
 
 state_storage = StateMemoryStorage()
 

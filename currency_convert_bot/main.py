@@ -30,7 +30,7 @@ def convert(message):
 
     currency_1 = message
     currency_2 = message
-    amount = 1000
+    amount = 10
 
     url = f"https://cbu.uz/uz/arkhiv-kursov-valyut/json/"
     headers = {
