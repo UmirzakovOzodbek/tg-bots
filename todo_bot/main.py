@@ -6,10 +6,10 @@ from telebot import custom_filters
 from telebot.storage import StateMemoryStorage
 from telebot.types import BotCommand, ReplyKeyboardRemove
 
-from bot.todo.keybords import languages_inline_btn
-from bot.todo.messages import messages
-from bot.todo.task import Chat, Task
-from bot.utils import write_row_to_csv, get_fullname, get_language_code_by_chat_id
+from keybords import languages_inline_btn
+from messages import messages
+from task import Chat, Task
+from utils import write_row_to_csv, get_fullname, get_language_code_by_chat_id
 
 
 BOT_TOKEN = "6154362259:AAG7TwOYqdlqu3BW2JFrEEGc-Z1wIFhOMXw"
@@ -99,6 +99,7 @@ def my_commands():
 
 
 bot.add_custom_filter(custom_filters.StateFilter(bot))
+
 
 if __name__ == "__main__":
     print("Started...")
