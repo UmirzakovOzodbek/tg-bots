@@ -129,7 +129,6 @@ def callback(call):
         bot.send_message(message.chat.id, "Data was not saved back to /register")
 
 
-# /add
 @bot.message_handler(commands=["add"])
 def add_task_handler(message):
     chat_id = message.chat.id
