@@ -117,13 +117,9 @@ def callback(call):
     message = call.message
     text = call.data.split("_")[1]
     if text == "OK":
-        save_info = Storage(
-            text[0].split(":")[1].strip(),
-            text[1].split(":")[1].strip(),
-            text[2].split(":")[1].strip(),
-            text[3].split(":")[1].strip(),
-            text[4].split(":")[1].strip(),
-        )
+        save_info = Storage(text[0].split(":")[1].strip(), text[1].split(":")[1].strip(), text[2].split(":")[1].strip(),
+                            text[3].split(":")[1].strip(), text[4].split(":")[1].strip(),
+                            )
         write_to_csv(
             "tasks.csv",
             save_info.get_storage_info_csv().keys(),
