@@ -22,6 +22,7 @@ def echo_all(message):
 
 
 if __name__ == "__main__":
+    print("Started...")
     bot.polling()
 
 
