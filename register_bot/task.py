@@ -24,3 +24,21 @@ class Task:
             "name": self.name,
             "created_at": self.created_at
         }
+
+
+class Storage:
+    def __init__(self, full_name, phone, age, language, course):
+        self.full_name = full_name
+        self.phone = phone
+        self.age = age
+        self.language = language
+        self.course = course
+
+    def get_storage_info_csv(self):
+        return {
+            "Fullname": self.full_name,
+            "Phone": self.phone,
+            "Age": self.age,
+            "Language": self.language,
+            "Course": self.course
+        }
