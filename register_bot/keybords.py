@@ -1,71 +1,42 @@
-from telebot.types import (
-    ReplyKeyboardMarkup,
-    KeyboardButton,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton
-)
-
-languages_btn = ReplyKeyboardMarkup(resize_keyboard=True)
-
-LANGUAGES = {
-    "UZ 🇺🇿": "uz",
-    "RU 🇷🇺": "ru",
-    "EN 🇬🇧": "en"
-}
-
-languages_btn.add(
-    KeyboardButton(list(LANGUAGES.keys())[0]),
-    KeyboardButton(list(LANGUAGES.keys())[1]),
-    KeyboardButton(list(LANGUAGES.keys())[2])
-)
-
-languages_inline_btn = InlineKeyboardMarkup()
-
-languages_inline_btn.add(
-    InlineKeyboardButton(list(LANGUAGES.keys())[0], callback_data=f"language_{list(LANGUAGES.values())[0]}"),
-    InlineKeyboardButton(list(LANGUAGES.keys())[1], callback_data=f"language_{list(LANGUAGES.values())[1]}"),
-    InlineKeyboardButton(list(LANGUAGES.keys())[2], callback_data=f"language_{list(LANGUAGES.values())[2]}"),
-)
+from telebot.types import (ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton)
 
 
-confirm_btn = ReplyKeyboardMarkup(resize_keyboard=True)
+def get_languages_btn(action):
+    languages = {
+        "UZ 🇺🇿": "uz",
+        "RU 🇷🇺": "ru",
+        "ENG 🇬🇧": "en"
+    }
 
-CONSENT = {
-    "YES ✅": "yes",
-    "NO ❌": "no"
-}
-
-
-def get_language_btn(action):
     languages_inline_btn = InlineKeyboardMarkup()
+
     languages_inline_btn.add(
         InlineKeyboardButton(
-            list(LANGUAGES.keys())[0], callback_data=f"{action}_language_{list(LANGUAGES.values())[0]}"
+            list(languages.keys())[0], callback_data=f"{action}_language_{list(languages.values())[0]}"
         ),
         InlineKeyboardButton(
-            list(LANGUAGES.keys())[1], callback_data=f"{action}_language_{list(LANGUAGES.values())[1]}"
+            list(languages.keys())[1], callback_data=f"{action}_language_{list(languages.values())[1]}"
         ),
         InlineKeyboardButton(
-            list(LANGUAGES.keys())[2], callback_data=f"{action}_language_{list(LANGUAGES.values())[2]}"
-        ),
+            list(languages.keys())[2], callback_data=f"{action}_language_{list(languages.values())[2]}"
+        )
     )
     return languages_inline_btn
 
 
-# languages_btn.add(
-#     KeyboardButton(list(LANGUAGES.keys())[0]),
-#     KeyboardButton(list(LANGUAGES.keys())[1]),
-#     KeyboardButton(list(LANGUAGES.keys())[2])
-# )
-#
-# languages_inline_btn = InlineKeyboardMarkup()
-#
-# languages_inline_btn.add(
-#     InlineKeyboardButton(list(LANGUAGES.keys())[0], callback_data=f"language_{list(LANGUAGES.values())[0]}"),
-#     InlineKeyboardButton(list(LANGUAGES.keys())[1], callback_data=f"language_{list(LANGUAGES.values())[1]}"),
-#     InlineKeyboardButton(list(LANGUAGES.keys())[2], callback_data=f"language_{list(LANGUAGES.values())[2]}"),
-# )
+def storage_inline_btn(action):
+    storage = {
+        "✅": "OK",
+        "❌": "NO"
+    }
+    storage_btn = InlineKeyboardMarkup()
+    storage_btn.add(
+        InlineKeyboardButton(list(storage.keys())[0], callback_data=f"{action}_{list(storage.values())[0]}"),
+        InlineKeyboardButton(list(storage.keys())[1], callback_data=f"{action}_{list(storage.values())[1]}")
+    )
+    return storage_btn
 
 
 share_phone_btn = ReplyKeyboardMarkup(resize_keyboard=True)
 share_phone_btn.add(KeyboardButton("Share phone", request_contact=True))
+
